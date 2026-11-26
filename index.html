@@ -3,161 +3,330 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kylle Martinez | Full-Stack Developer</title>
-<meta name="description" content="Kylle Acerann Martinez, full-stack and backend developer from the Philippines. Web, mobile, games and cloud.">
+<title>Kylle Martinez | Full-Stack Software Developer</title>
+<meta name="description" content="Kylle Acerann Martinez, full-stack and backend software developer. Web platforms, mobile apps, games, admin systems and cloud backends.">
+<meta property="og:title" content="Kylle Martinez | Full-Stack Software Developer">
+<meta property="og:description" content="Web platforms, mobile apps, games, admin systems and secure cloud backends.">
+<meta property="og:image" content="https://kyllemartinez08.github.io/img/gon-web-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0f17; --bg2: #111827; --card: #131a26; --line: #1f2937; --ink: #e5e7eb; --muted: #9ca3af;
-    --accent: #38bdf8; --accent2: #a78bfa; --good: #34d399;
+    --bg: #fafaf7; --surface: #ffffff; --ink: #0f1115; --ink2: #3b404b; --muted: #6b7280;
+    --line: #e7e5df; --accent: #2f4bff; --accent-soft: #eef0ff; --dark: #0f1115; --chip: #f3f2ee;
+    --shadow: 0 1px 2px rgba(15,17,21,.04), 0 8px 24px rgba(15,17,21,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0d10; --surface: #14161b; --ink: #f2f1ed; --ink2: #c9cbd2; --muted: #8d929c;
+      --line: #23262e; --accent: #7b8cff; --accent-soft: #1a1e33; --dark: #050608; --chip: #1c1f26;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
+  .eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 
-  nav { position: sticky; top: 0; z-index: 10; background: rgba(11,15,23,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  nav .logo { font-weight: 800; color: var(--ink); letter-spacing: .3px; }
-  nav .logo span { color: var(--accent); }
-  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
-  nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
-  nav ul a:hover { color: var(--ink); text-decoration: none; }
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+  nav.scrolled { border-color: var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; letter-spacing: -.01em; }
+  .mono { width: 34px; height: 34px; border-radius: 10px; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+  nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+  nav ul a { text-decoration: none; color: var(--ink2); font-size: 14.5px; font-weight: 500; }
+  nav ul a:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 14.5px; text-decoration: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: transform .15s, box-shadow .15s; cursor: pointer; }
+  .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+  .btn.solid { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn svg { width: 16px; height: 16px; }
 
-  header.hero { padding: 90px 0 70px; position: relative; overflow: hidden; }
-  header.hero::before { content: ''; position: absolute; inset: -40% -10% auto auto; width: 700px; height: 700px; background: radial-gradient(closest-side, rgba(56,189,248,.18), transparent); pointer-events: none; }
-  .hero .tag { font-family: 'JetBrains Mono', monospace; color: var(--good); font-size: 14px; }
-  .hero h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; margin: 14px 0 10px; font-weight: 800; letter-spacing: -1px; }
-  .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 680px; margin: 0 0 28px; }
-  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid var(--line); color: var(--ink); background: var(--card); }
-  .btn.primary { background: var(--accent); color: #04111d; border-color: var(--accent); }
-  .btn:hover { text-decoration: none; filter: brightness(1.1); }
-  .stats { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 44px; }
-  .stats b { display: block; font-size: 28px; font-weight: 800; }
-  .stats span { color: var(--muted); font-size: 14px; }
+  /* Hero */
+  .hero { padding: 92px 0 72px; }
+  .avail { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 13.5px; color: var(--ink2); }
+  .avail i { width: 8px; height: 8px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 4px rgba(22,163,74,.15); }
+  .hero h1 { font-size: clamp(44px, 7vw, 86px); line-height: 1.02; letter-spacing: -.035em; margin: 26px 0 24px; font-weight: 600; max-width: 980px; }
+  .hero h1 .serif { font-style: italic; letter-spacing: -.01em; color: var(--accent); }
+  .hero p { font-size: 19px; color: var(--ink2); max-width: 640px; margin: 0 0 34px; }
+  .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 72px; border-top: 1px solid var(--line); }
+  .metrics div { padding: 26px 20px 0 0; }
+  .metrics b { display: block; font-size: 34px; font-weight: 600; letter-spacing: -.02em; }
+  .metrics span { color: var(--muted); font-size: 14px; }
 
-  section { padding: 70px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 30px; margin: 0 0 8px; letter-spacing: -.5px; }
-  .sub { color: var(--muted); margin: 0 0 34px; }
+  .logos { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; }
+  .logos .wrap { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: space-between; }
+  .logos span.n { font-weight: 600; color: var(--muted); font-size: 15.5px; letter-spacing: -.01em; }
 
-  .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
-  .about p { color: #cbd5e1; margin: 0 0 14px; }
-  .facts { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
-  .facts div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  section { padding: 110px 0; }
+  .head { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; margin-bottom: 44px; }
+  .head h2 { font-size: clamp(34px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -.03em; margin: 10px 0 0; font-weight: 600; }
+  .head h2 .serif { font-style: italic; }
+  .head p { color: var(--ink2); max-width: 420px; margin: 0; }
+
+  /* Work */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+  .filters button { font: inherit; font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink2); cursor: pointer; }
+  .filters button.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; cursor: pointer; text-align: left; padding: 0; font: inherit; color: inherit; transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .card.wide { grid-column: span 2; }
+  .cover { position: relative; aspect-ratio: 16 / 9.5; overflow: hidden; background: var(--chip); }
+  .card.wide .cover { aspect-ratio: 21 / 9; }
+  .cover img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .card:hover .cover img { transform: scale(1.035); }
+  .cover.phones { display: flex; gap: 14px; justify-content: center; align-items: center; padding: 26px; background: linear-gradient(135deg, #1d2140, #0f1115); }
+  .cover.phones img { width: auto; height: 100%; max-width: 30%; object-fit: contain; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+  .cover .count { position: absolute; right: 14px; bottom: 14px; background: rgba(15,17,21,.75); color: #fff; font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(6px); }
+  .meta { padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .meta .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .meta h3 { margin: 0; font-size: 22px; letter-spacing: -.02em; font-weight: 600; }
+  .meta p { margin: 0; color: var(--ink2); font-size: 15px; }
+  .arrow { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; flex: 0 0 auto; transition: background .2s, color .2s; }
+  .card:hover .arrow { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tag { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; background: var(--chip); color: var(--ink2); }
+
+  .others { margin-top: 56px; border-top: 1px solid var(--line); }
+  .other { display: grid; grid-template-columns: 220px 1fr auto; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .other h4 { margin: 0; font-size: 17px; font-weight: 600; }
+  .other p { margin: 0; color: var(--ink2); font-size: 15px; }
+  .other .tags { margin: 0; justify-content: flex-end; }
+
+  /* Services */
+  .dark { background: var(--dark); color: #f2f1ed; }
+  .dark .eyebrow { color: #8d929c; }
+  .dark .head p { color: #c9cbd2; }
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #23262e; border: 1px solid #23262e; border-radius: 22px; overflow: hidden; }
+  .svc { background: var(--dark); padding: 34px 30px; }
+  .svc .n { font-size: 13px; color: #8d929c; font-weight: 600; }
+  .svc h3 { margin: 16px 0 10px; font-size: 21px; letter-spacing: -.01em; font-weight: 600; }
+  .svc p { margin: 0; color: #b5b8c0; font-size: 15px; }
+
+  /* Experience */
+  .exp { border-top: 1px solid var(--line); }
+  .job { display: grid; grid-template-columns: 200px 1fr; gap: 30px; padding: 30px 0; border-bottom: 1px solid var(--line); }
+  .job .when { color: var(--muted); font-size: 14.5px; font-variant-numeric: tabular-nums; }
+  .job h3 { margin: 0 0 2px; font-size: 20px; letter-spacing: -.01em; font-weight: 600; }
+  .job .co { color: var(--accent); font-weight: 500; }
+  .job p { margin: 10px 0 0; color: var(--ink2); }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .sk { border: 1px solid var(--line); background: var(--surface); border-radius: 18px; padding: 24px; }
+  .sk h4 { margin: 0 0 14px; font-size: 15px; font-weight: 600; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+  .about .big { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.35; letter-spacing: -.015em; margin: 0 0 24px; }
+  .about p { color: var(--ink2); }
+  .facts { border: 1px solid var(--line); border-radius: 20px; background: var(--surface); padding: 8px 26px; }
+  .facts div { display: flex; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
   .facts div:last-child { border: 0; }
   .facts span { color: var(--muted); }
+  .facts b { font-weight: 600; text-align: right; }
+  .facts a { text-decoration: none; color: var(--accent); font-weight: 600; }
 
-  .projects { display: grid; gap: 28px; }
-  .proj { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
-  .proj:nth-child(even) .shots { order: 2; }
-  .shots { background: #0a0d14; display: grid; gap: 4px; }
-  .shots img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; min-height: 0; }
-  .shots.two { grid-template-rows: 1fr 1fr; }
-  .shots.main3 { grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; }
-  .shots.main3 img:first-child { grid-column: 1 / 3; }
-  .proj .body { padding: 28px; display: flex; flex-direction: column; }
-  .proj .kind { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent2); text-transform: uppercase; letter-spacing: 1px; }
-  .proj h3 { margin: 6px 0 10px; font-size: 23px; }
-  .proj p { color: #cbd5e1; margin: 0 0 14px; font-size: 15px; }
-  .proj ul { margin: 0 0 16px; padding-left: 18px; color: #cbd5e1; font-size: 14.5px; }
-  .proj ul li { margin: 3px 0; }
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-  .chip { font-size: 12px; padding: 4px 10px; border-radius: 99px; background: #1e293b; color: #cbd5e1; border: 1px solid #273449; }
-  .proj .links { margin-top: 16px; display: flex; gap: 16px; font-weight: 600; font-size: 14px; }
+  /* Contact */
+  .contact { text-align: center; padding: 130px 0; }
+  .contact h2 { font-size: clamp(42px, 7vw, 92px); line-height: 1; letter-spacing: -.04em; margin: 16px 0 26px; font-weight: 600; }
+  .contact h2 .serif { font-style: italic; color: var(--accent); }
+  .contact p { color: var(--ink2); max-width: 540px; margin: 0 auto 36px; font-size: 18px; }
+  .contact .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cinfo { display: flex; justify-content: center; gap: 40px; margin-top: 52px; flex-wrap: wrap; color: var(--ink2); font-size: 15px; }
+  .cinfo span { display: block; color: var(--muted); font-size: 12.5px; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; margin-bottom: 4px; }
+  .cinfo a { text-decoration: none; font-weight: 600; color: var(--ink); }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
-  .more { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 34px; }
-  .mini { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
-  .mini .icon { font-size: 26px; }
-  .mini h4 { margin: 8px 0 6px; font-size: 17px; }
-  .mini p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+  /* Case study modal */
+  .modal { position: fixed; inset: 0; z-index: 50; display: none; background: rgba(8,9,12,.72); backdrop-filter: blur(6px); overflow-y: auto; padding: 40px 20px; }
+  .modal.on { display: block; }
+  .sheet { max-width: 1080px; margin: 0 auto; background: var(--surface); border-radius: 26px; overflow: hidden; position: relative; animation: rise .35s cubic-bezier(.2,.8,.2,1); }
+  @keyframes rise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .close { position: absolute; top: 16px; right: 16px; z-index: 3; width: 42px; height: 42px; border-radius: 50%; border: 0; background: rgba(15,17,21,.7); color: #fff; font-size: 22px; cursor: pointer; }
+  .stage { position: relative; background: #0b0c10; aspect-ratio: 16 / 9; display: grid; place-items: center; }
+  .stage img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: #0f1115; font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+  .nav-btn.prev { left: 16px; } .nav-btn.next { right: 16px; }
+  .stage .cap { position: absolute; left: 16px; bottom: 14px; color: #fff; background: rgba(0,0,0,.55); padding: 5px 12px; border-radius: 999px; font-size: 13px; }
+  .thumbs { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; background: #0b0c10; }
+  .thumbs img { height: 58px; width: auto; border-radius: 8px; opacity: .45; cursor: pointer; border: 2px solid transparent; flex: 0 0 auto; }
+  .thumbs img.on { opacity: 1; border-color: #fff; }
+  .cs { display: grid; grid-template-columns: 1.5fr 1fr; gap: 44px; padding: 40px 44px 48px; }
+  .cs h2 { margin: 6px 0 14px; font-size: 36px; letter-spacing: -.03em; font-weight: 600; }
+  .cs p { color: var(--ink2); margin: 0 0 18px; }
+  .cs ul { margin: 0; padding-left: 20px; color: var(--ink2); }
+  .cs li { margin: 6px 0; }
+  .side div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .side div:first-child { padding-top: 0; }
+  .side span { display: block; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-weight: 600; margin-bottom: 6px; }
+  .side a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
-  .timeline { position: relative; margin-left: 8px; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
-  .job { position: relative; padding: 0 0 28px 28px; }
-  .job::before { content: ''; position: absolute; left: -5px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(56,189,248,.15); }
-  .job h4 { margin: 0; font-size: 18px; }
-  .job .co { color: var(--accent); font-weight: 600; }
-  .job .when { color: var(--muted); font-size: 14px; font-family: 'JetBrains Mono', monospace; }
-  .job p { margin: 6px 0 0; color: #cbd5e1; font-size: 15px; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
 
-  .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
-  .skill { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
-  .skill h4 { margin: 0 0 10px; font-size: 16px; }
-
-  .contact { text-align: center; }
-  .contact .cards { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
-  .contact .c { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; min-width: 240px; }
-  .contact .c span { display: block; color: var(--muted); font-size: 13px; }
-  .contact .c a, .contact .c b { font-size: 16px; font-weight: 600; color: var(--ink); }
-  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0 40px; border-top: 1px solid var(--line); }
-
-  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; cursor: zoom-out; }
-  .lightbox.on { display: flex; }
-  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 10px; }
-
-  @media (max-width: 820px) {
+  @media (max-width: 900px) {
     nav ul { display: none; }
-    .about, .proj { grid-template-columns: 1fr; }
-    .proj:nth-child(even) .shots { order: 0; }
-    .shots { max-height: 340px; }
-    header.hero { padding: 60px 0 50px; }
-    section { padding: 54px 0; }
+    .grid { grid-template-columns: 1fr; }
+    .card.wide { grid-column: auto; }
+    .card.wide .cover { aspect-ratio: 16 / 9.5; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .services, .skills { grid-template-columns: 1fr 1fr; }
+    .about, .cs { grid-template-columns: 1fr; gap: 30px; }
+    .cs { padding: 28px 22px 34px; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .other { grid-template-columns: 1fr; gap: 6px; }
+    .other .tags { justify-content: flex-start; }
+    section { padding: 80px 0; }
+    .hero { padding: 60px 0 50px; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .services, .skills { grid-template-columns: 1fr; }
+    .metrics b { font-size: 28px; }
+    .modal { padding: 0; }
+    .sheet { border-radius: 0; min-height: 100%; }
+    .stage { aspect-ratio: 4 / 3.4; }
   }
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="nav">
   <div class="wrap">
-    <a href="#top" class="logo">kylle<span>.dev</span></a>
+    <a href="#top" class="brand"><span class="mono">KM</span>Kylle Martinez</a>
     <ul>
-      <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
+    <a class="btn solid" href="#contact">Get in touch</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="tag">// Full-Stack &amp; Backend Developer · Philippines · Open to remote</div>
-    <h1>Hi, I'm Kylle.<br>I build <em>secure, reliable</em> web, mobile &amp; game software.</h1>
-    <p class="lead">7+ years shipping production apps end to end: backend APIs, databases, cloud hosting, admin dashboards and the apps people actually use. I work daily with AI coding tools like Claude Code and Cursor to move fast without cutting corners.</p>
-    <div class="btns">
-      <a class="btn primary" href="mailto:kyllemartinez1997@gmail.com">Email me</a>
-      <a class="btn" href="#work">See my work</a>
-      <a class="btn" href="https://github.com/KylleMartinez08" target="_blank" rel="noopener">GitHub</a>
+    <span class="avail"><i></i>Available for remote projects</span>
+    <h1>Full-stack developer building <span class="serif">dependable</span> software, from database to screen.</h1>
+    <p>I'm Kylle, a software developer from the Philippines with 7+ years of experience shipping web platforms, mobile apps, games and the secure backends that power them.</p>
+    <div class="cta">
+      <a class="btn solid" href="#work">View selected work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="mailto:kyllemartinez1997@gmail.com">kyllemartinez1997@gmail.com</a>
     </div>
-    <div class="stats">
-      <div><b>7+ yrs</b><span>building software</span></div>
-      <div><b>Web · Mobile · Games</b><span>full-stack range</span></div>
-      <div><b>HIPAA / PHI</b><span>aware backend design</span></div>
+    <div class="metrics">
+      <div><b>7+</b><span>Years building software</span></div>
+      <div><b>12</b><span>Projects featured here</span></div>
+      <div><b>4</b><span>Platforms: web, mobile, game, cloud</span></div>
+      <div><b>End to end</b><span>Schema to deployment</span></div>
     </div>
   </div>
 </header>
 
-<section id="about">
+<div class="logos">
   <div class="wrap">
-    <h2>About me</h2>
-    <p class="sub">From hardware technician to lead developer.</p>
-    <div class="about">
+    <span class="eyebrow">Worked with</span>
+    <span class="n">Binx.tv</span><span class="n">MetaXSeed</span><span class="n">TCS John Huxley</span><span class="n">Natugen</span><span class="n">Echelon Prime</span><span class="n">Random&amp;Right</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="eyebrow">Selected work</div><h2>Projects I've <span class="serif">built</span></h2></div>
+      <p>Open any project to see the full case study and screenshot gallery.</p>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="on" data-f="all">All</button>
+      <button data-f="web">Web</button>
+      <button data-f="mobile">Mobile</button>
+      <button data-f="game">Games</button>
+      <button data-f="backend">Backend</button>
+    </div>
+    <div class="grid" id="grid"></div>
+
+    <div class="others reveal">
+      <div class="other"><h4>Card Scanner</h4><p>Booth lead capture for exhibitions. AI reads a business card, the team tags the lead, sends the catalog and follow-ups run automatically.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">AI</span></div></div>
+      <div class="other"><h4>cdrive.shop</h4><p>Marketplace for professional organizers with listings, provider and customer dashboards, and an admin area.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span></div></div>
+      <div class="other"><h4>Batangas Church App</h4><p>Mobile app for a local church community.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span></div></div>
+      <div class="other"><h4>Space Shooter Multiplayer</h4><p>Online multiplayer 2D space shooter.</p><div class="tags"><span class="tag">Unity</span><span class="tag">C#</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="dark">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="eyebrow">Services</div><h2>How I can <span class="serif">help</span></h2></div>
+      <p>I can own a product end to end, or join your team and take a part of the stack off your hands.</p>
+    </div>
+    <div class="services reveal">
+      <div class="svc"><div class="n">01</div><h3>Web platforms</h3><p>Customer portals, dashboards and booking flows in React and Next.js, fast and responsive on every device.</p></div>
+      <div class="svc"><div class="n">02</div><h3>Backend &amp; APIs</h3><p>REST APIs, databases and integrations in Node.js, with clean data models and solid access control.</p></div>
+      <div class="svc"><div class="n">03</div><h3>Admin systems</h3><p>Internal tools for records, users, items, stats and support, built so staff can work without a developer.</p></div>
+      <div class="svc"><div class="n">04</div><h3>Mobile apps</h3><p>Cross-platform Flutter apps with role-based access, media capture and progress tracking.</p></div>
+      <div class="svc"><div class="n">05</div><h3>Secure data handling</h3><p>Knowledgeable in HIPAA and PHI integration: row-level security, private file storage and audit-friendly records.</p></div>
+      <div class="svc"><div class="n">06</div><h3>Cloud &amp; deployment</h3><p>AWS, Railway, Vercel, Supabase and Docker, including CI/CD, DNS and keeping production running.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="eyebrow">Experience</div><h2>Where I've <span class="serif">worked</span></h2></div>
+      <p>From hardware technician, to solo freelancer, to leading a development team.</p>
+    </div>
+    <div class="exp reveal">
+      <div class="job"><div class="when">2025 – 2026</div><div><h3>Full Stack Developer · <span class="co">Natugen Software Development Services</span></h3><p>Built backend APIs and databases with Node.js and SQL, full-stack TypeScript and Next.js apps, and hosted services on AWS and Railway. Owned client projects from development to deployment, including DNS and server setup.</p></div></div>
+      <div class="job"><div class="when">2024 – 2025</div><div><h3>Lead Software Developer · <span class="co">MetaXSeed</span></h3><p>Led development initiatives, mentored junior developers on engineering best practices, and architected systems for performance across platforms.</p></div></div>
+      <div class="job"><div class="when">2024 – 2025</div><div><h3>Software Developer · <span class="co">Echelon Prime</span></h3><p>Freelance. Developed core features and complex application systems.</p></div></div>
+      <div class="job"><div class="when">2022 – 2024</div><div><h3>Software Developer · <span class="co">TCS John Huxley</span></h3><p>Built applications for the regulated casino industry under strict compliance and quality standards, working with cross-functional teams.</p></div></div>
+      <div class="job"><div class="when">2017 – 2022</div><div><h3>Solo Software Developer · <span class="co">Random&amp;Right Inc.</span></h3><p>Freelance. Built mobile and Android apps from concept to deployment, managing client communication, design and delivery.</p></div></div>
+      <div class="job"><div class="when">2015 – 2023</div><div><h3>Computer Hardware Technician &amp; School IT</h3><p>Repairs, custom builds and network setups for internet cafes and small businesses. Taught hardware and software fundamentals.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><div class="eyebrow">Toolkit</div><h2>Technologies I <span class="serif">use</span></h2></div>
+    </div>
+    <div class="skills reveal">
+      <div class="sk"><h4>Frontend</h4><div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">JavaScript</span></div></div>
+      <div class="sk"><h4>Backend</h4><div class="tags"><span class="tag">Node.js</span><span class="tag">Fastify</span><span class="tag">PHP</span><span class="tag">REST</span><span class="tag">Meteor.js</span></div></div>
+      <div class="sk"><h4>Data</h4><div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">MongoDB</span><span class="tag">MySQL</span><span class="tag">Firebase</span><span class="tag">PlanetScale</span></div></div>
+      <div class="sk"><h4>Cloud</h4><div class="tags"><span class="tag">AWS</span><span class="tag">Railway</span><span class="tag">Vercel</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div></div>
+      <div class="sk"><h4>Mobile</h4><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Android Studio</span></div></div>
+      <div class="sk"><h4>Games</h4><div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Steamworks</span></div></div>
+      <div class="sk"><h4>Compliance</h4><div class="tags"><span class="tag">HIPAA</span><span class="tag">PHI</span><span class="tag">Access control</span><span class="tag">RLS</span></div></div>
+      <div class="sk"><h4>AI tools</h4><div class="tags"><span class="tag">Claude Code</span><span class="tag">Cursor</span><span class="tag">ChatGPT</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal"><div><div class="eyebrow">About</div><h2>A bit about <span class="serif">me</span></h2></div></div>
+    <div class="about reveal">
       <div>
-        <p>I'm a full-stack and backend developer based in Caloocan City, Philippines. I started out repairing PCs and setting up networks for internet cafes, then moved into building Android apps as a solo freelancer, then into regulated industry software, and later led a development team.</p>
-        <p>Today I work across the whole stack: Node.js and Fastify APIs, Next.js and React front ends, Flutter mobile apps, Unity game clients, and the databases and servers behind them (MongoDB, MySQL, Supabase, Firebase, AWS, Railway). I'm comfortable owning a project from the first schema to the DNS record.</p>
-        <p>I care about secure handling of sensitive data: access control, safe storage and transfer, and audit-friendly systems. I'm knowledgeable in HIPAA and PHI system integration and eager to build software for healthcare teams.</p>
+        <p class="big">I started out fixing PCs and wiring networks for internet cafes. Today I build the software that runs on them.</p>
+        <p>That path gives me a practical view of how software runs end to end, from the hardware and network up to the API, database and the screen a customer taps. I like owning a product from the first schema to the last DNS record, and I'm just as comfortable joining a team and picking up the part that needs doing.</p>
+        <p>I use AI coding tools like Claude Code and Cursor every day to move faster, while still reviewing every change and testing on real devices. I care about handling sensitive data the right way, and I'm eager to build software for healthcare teams.</p>
       </div>
       <div class="facts">
-        <div><span>Name</span><b>Kylle Acerann Martinez</b></div>
-        <div><span>Role</span><b>Full-Stack / Backend Dev</b></div>
-        <div><span>Location</span><b>Caloocan City, PH</b></div>
-        <div><span>Work setup</span><b>Remote, part-time or full-time</b></div>
+        <div><span>Based in</span><b>Caloocan City, Philippines</b></div>
+        <div><span>Work setup</span><b>Remote · part-time or full-time</b></div>
         <div><span>Education</span><b>BS Entertainment &amp; Multimedia Computing</b></div>
         <div><span>Email</span><a href="mailto:kyllemartinez1997@gmail.com">kyllemartinez1997@gmail.com</a></div>
         <div><span>Phone</span><a href="tel:+639563782723">+63 956 378 2723</a></div>
@@ -166,199 +335,188 @@
   </div>
 </section>
 
-<section id="work">
-  <div class="wrap">
-    <h2>Selected work</h2>
-    <p class="sub">Click any screenshot to see it bigger.</p>
-
-    <div class="projects">
-
-      <article class="proj">
-        <div class="shots main3">
-          <img src="img/derby-1.jpg" alt="Crash'em Derby arena with round counter">
-          <img src="img/derby-2.jpg" alt="Crash'em Derby gameplay">
-          <img src="img/derby-3.jpg" alt="Crash'em Derby gameplay">
-        </div>
-        <div class="body">
-          <div class="kind">Game + Backend · Binx.tv</div>
-          <h3>Crash'em Derby</h3>
-          <p>A crowd-play destruction derby on Steam where streamers play with their Twitch chat. I work on both the Unity game and the server behind it.</p>
-          <ul>
-            <li>Migrated the game backend from a Meteor monolith to a standalone Fastify + MongoDB REST API</li>
-            <li>Built the garage: car customization, paint jobs, decals, inventory and item locking</li>
-            <li>Added Steam DLC ownership checks that grant items on login</li>
-            <li>Built a React admin panel for player support, item grants and DLC catalog</li>
-            <li>Account linking flow with email one-time codes for old players</li>
-          </ul>
-          <div class="chips"><span class="chip">Unity / C#</span><span class="chip">Node.js</span><span class="chip">Fastify</span><span class="chip">MongoDB</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">Steamworks</span></div>
-          <div class="links"><a href="https://store.steampowered.com/app/1379670/Crashem_Derby/" target="_blank" rel="noopener">View on Steam →</a></div>
-        </div>
-      </article>
-
-      <article class="proj">
-        <div class="shots two">
-          <img src="img/doodle-qatar.jpg" alt="Doodle Wall Qatar theme with drawings on the map">
-          <img src="img/doodle-christmas.jpg" alt="Doodle Wall Christmas theme">
-        </div>
-        <div class="body">
-          <div class="kind">Event activation · Client project</div>
-          <h3>Doodle Wall</h3>
-          <p>Guests scan a QR code, color a shape on their phone and sign it, then watch it pop up live on a big projected wall. Built for an event activation client.</p>
-          <ul>
-            <li>Real-time wall powered by Supabase Realtime with a polling fallback</li>
-            <li>Five themes (Qatar, Christmas, New Year, Birthday, Wedding) with animated deliveries, like a falcon that carries each drawing onto the Qatar map</li>
-            <li>Operator panel: switch theme live, custom backgrounds, size controls, hide or clear drawings, download all as zip</li>
-            <li>Locked-down database: row-level security, code-protected admin functions</li>
-          </ul>
-          <div class="chips"><span class="chip">JavaScript</span><span class="chip">Canvas</span><span class="chip">Supabase</span><span class="chip">Postgres RLS</span><span class="chip">Realtime</span></div>
-        </div>
-      </article>
-
-      <article class="proj">
-        <div class="shots">
-          <img src="img/ezairsoft-home.jpg" alt="EZ Airsoft web home page with rewards card">
-        </div>
-        <div class="body">
-          <div class="kind">Web + Mobile · MetaXSeed</div>
-          <h3>EZ Airsoft</h3>
-          <p>A tactical gaming platform for an airsoft arena: match sign-ups, leaderboards, a gear shop and a loyalty rewards card that earns points on every purchase.</p>
-          <ul>
-            <li>Next.js web app in a TypeScript monorepo, deployed on Vercel</li>
-            <li>Companion Flutter mobile app</li>
-            <li>Membership tiers and points system with Firebase checkout</li>
-          </ul>
-          <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Flutter</span><span class="chip">Firebase</span><span class="chip">Monorepo</span></div>
-          <div class="links"><a href="https://metax-monorepo-ezairsoft-web.vercel.app" target="_blank" rel="noopener">Live site →</a></div>
-        </div>
-      </article>
-
+<section class="contact" id="contact" style="border-top:1px solid var(--line)">
+  <div class="wrap reveal">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's build something <span class="serif">together.</span></h2>
+    <p>Open to remote part-time, weekend or full-time work. Email is the fastest way to reach me.</p>
+    <div class="cta">
+      <a class="btn solid" href="mailto:kyllemartinez1997@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/KylleMartinez08" target="_blank" rel="noopener">GitHub</a>
     </div>
-
-    <div class="more">
-      <div class="mini">
-        <div class="icon">📇</div>
-        <h4>Card Scanner</h4>
-        <p>Booth lead capture for exhibitions. AI reads a business card, the team tags the lead, sends the catalog by email, and follow-ups go out automatically.</p>
-        <div class="chips"><span class="chip">Next.js 16</span><span class="chip">Supabase</span><span class="chip">AI</span></div>
-      </div>
-      <div class="mini">
-        <div class="icon">🗄️</div>
-        <h4>cdrive.shop</h4>
-        <p>Marketplace for professional organizers with public listings, provider and customer dashboards, and an admin area.</p>
-        <div class="chips"><span class="chip">Next.js 16</span><span class="chip">Supabase</span><span class="chip">Mobile</span></div>
-      </div>
-      <div class="mini">
-        <div class="icon">🎉</div>
-        <h4>White Crown Events</h4>
-        <p>AI-assisted event platform with accounts and sign-in, deployed on Vercel.</p>
-        <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">AI</span></div>
-      </div>
-      <div class="mini">
-        <div class="icon">⛪</div>
-        <h4>Batangas Church App</h4>
-        <p>Mobile app for a church community.</p>
-        <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span></div>
-      </div>
-      <div class="mini">
-        <div class="icon">📚</div>
-        <h4>ReadVenture</h4>
-        <p>Mobile reading app.</p>
-        <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span></div>
-      </div>
-      <div class="mini">
-        <div class="icon">🚀</div>
-        <h4>Space Shooter Multiplayer 2D</h4>
-        <p>Online multiplayer 2D space shooter.</p>
-        <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Multiplayer</span></div>
-      </div>
+    <div class="cinfo">
+      <div><span>Email</span><a href="mailto:kyllemartinez1997@gmail.com">kyllemartinez1997@gmail.com</a></div>
+      <div><span>Phone</span><a href="tel:+639563782723">+63 956 378 2723</a></div>
+      <div><span>Location</span>Caloocan City, Philippines</div>
     </div>
   </div>
 </section>
 
-<section id="experience">
-  <div class="wrap">
-    <h2>Experience</h2>
-    <p class="sub">Where I've worked.</p>
-    <div class="timeline">
-      <div class="job">
-        <h4>Full Stack Developer · <span class="co">Natugen Software Development Services</span></h4>
-        <div class="when">Jan 2025 – Sep 2026</div>
-        <p>Backend APIs and databases with Node.js and SQL, full-stack TypeScript / Next.js apps on PlanetScale and other managed databases, and hosting on AWS and Railway, including server setup and DNS. Owned client projects from development to deployment.</p>
-      </div>
-      <div class="job">
-        <h4>Lead Software Developer · <span class="co">MetaXSeed</span></h4>
-        <div class="when">Mar 2024 – Jul 2025</div>
-        <p>Led development, mentored junior developers on engineering best practices, and architected and optimized systems across web and mobile.</p>
-      </div>
-      <div class="job">
-        <h4>Software Developer · <span class="co">Echelon Prime (Freelance)</span></h4>
-        <div class="when">Mar 2024 – Feb 2025</div>
-        <p>Developed core features and complex application systems.</p>
-      </div>
-      <div class="job">
-        <h4>Software Developer · <span class="co">TCS John Huxley</span></h4>
-        <div class="when">May 2022 – Mar 2024</div>
-        <p>Built applications for the regulated casino industry under strict compliance and quality standards, working with cross-functional teams.</p>
-      </div>
-      <div class="job">
-        <h4>Solo Software Developer (Freelance) · <span class="co">Random&amp;Right Inc.</span></h4>
-        <div class="when">2017 – 2022</div>
-        <p>Built mobile and Android apps from concept to deployment, handling client communication, design and delivery.</p>
-      </div>
-      <div class="job">
-        <h4>Computer Instructor / School IT</h4>
-        <div class="when">2022 – 2023</div>
-        <p>Taught hardware and software fundamentals and maintained school IT infrastructure.</p>
-      </div>
-      <div class="job">
-        <h4>Computer Hardware Technician (On-call)</h4>
-        <div class="when">2015 – 2023</div>
-        <p>Repairs, custom builds, and network setups for internet cafes and small businesses.</p>
-      </div>
+<footer><div class="wrap"><span>© <span id="yr"></span> Kylle Acerann Martinez</span><span>Full-Stack Software Developer</span></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <button class="close" id="close" aria-label="Close">×</button>
+    <div class="stage"><img id="big" alt=""><button class="nav-btn prev" id="prev" aria-label="Previous">‹</button><button class="nav-btn next" id="next" aria-label="Next">›</button><span class="cap" id="cap"></span></div>
+    <div class="thumbs" id="thumbs"></div>
+    <div class="cs">
+      <div><div class="eyebrow" id="mKind"></div><h2 id="mTitle"></h2><p id="mDesc"></p><ul id="mList"></ul></div>
+      <div class="side" id="mSide"></div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="skills">
-  <div class="wrap">
-    <h2>Skills</h2>
-    <p class="sub">Tools I use to ship.</p>
-    <div class="skills">
-      <div class="skill"><h4>Backend &amp; Database</h4><div class="chips"><span class="chip">Node.js</span><span class="chip">Fastify</span><span class="chip">PHP</span><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span><span class="chip">Firebase</span><span class="chip">PlanetScale</span><span class="chip">Meteor.js</span></div></div>
-      <div class="skill"><h4>Web</h4><div class="chips"><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Tailwind</span><span class="chip">REST APIs</span></div></div>
-      <div class="skill"><h4>Mobile</h4><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Android Studio</span><span class="chip">Google Maps API</span></div></div>
-      <div class="skill"><h4>Cloud &amp; DevOps</h4><div class="chips"><span class="chip">AWS</span><span class="chip">Railway</span><span class="chip">Vercel</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">DNS</span><span class="chip">Linux servers</span></div></div>
-      <div class="skill"><h4>Healthcare &amp; Security</h4><div class="chips"><span class="chip">HIPAA</span><span class="chip">PHI handling</span><span class="chip">Access control</span><span class="chip">Row-level security</span><span class="chip">Secure file storage</span></div></div>
-      <div class="skill"><h4>Games &amp; Hardware</h4><div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Steamworks</span><span class="chip">Arduino</span><span class="chip">Raspberry Pi</span></div></div>
-      <div class="skill"><h4>AI tools</h4><div class="chips"><span class="chip">Claude Code</span><span class="chip">Cursor</span><span class="chip">ChatGPT</span></div></div>
-      <div class="skill"><h4>Workflow</h4><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Photoshop</span><span class="chip">Premiere Pro</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="wrap">
-    <h2>Let's work together</h2>
-    <p class="sub" style="margin:0 auto;max-width:560px">Open to remote part-time, weekend or full-time work. Email is the fastest way to reach me.</p>
-    <div class="cards">
-      <div class="c"><span>Email</span><a href="mailto:kyllemartinez1997@gmail.com">kyllemartinez1997@gmail.com</a></div>
-      <div class="c"><span>Phone</span><a href="tel:+639563782723">+63 956 378 2723</a></div>
-      <div class="c"><span>Location</span><b>Caloocan City, Philippines</b></div>
-    </div>
-  </div>
-</section>
-
-<footer>© <span id="yr"></span> Kylle Acerann Martinez</footer>
-
-<div class="lightbox" id="lb"><img alt=""></div>
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  var lb = document.getElementById('lb'), li = lb.querySelector('img');
-  document.querySelectorAll('.shots img').forEach(function (im) {
-    im.addEventListener('click', function () { li.src = im.src; li.alt = im.alt; lb.classList.add('on'); });
-  });
-  lb.addEventListener('click', function () { lb.classList.remove('on'); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('on'); });
+var P = [
+  { id: 'gon', wide: true, f: ['game', 'web', 'backend'], kind: 'Trading card game · Web platform · Admin', title: 'Generations of Natura',
+    short: 'A full card game ecosystem: Unity game, player web portal and admin panel.',
+    desc: 'A trading card game with its own economy. Players battle in the Unity game, then manage their profile, missions, rankings and card shop on the web portal, while the team runs everything from an admin panel.',
+    list: ['Unity card game with collections, deck building, AI and multiplayer modes, and turn-based battles',
+      'Player portal with profile, wallet, daily, weekly and yearly leaderboards, missions and a card shop',
+      'Admin panel for user stats, missions and rewards, shop items with rarity and pricing, and logs'],
+    role: 'Full-stack and game developer', stack: ['Unity', 'C#', 'Next.js', 'TypeScript', 'Node.js'],
+    shots: ['gon-web-1', 'gon-game-2', 'gon-game-3', 'gon-game-1', 'gon-game-4', 'gon-game-5', 'gon-game-6', 'gon-web-2', 'gon-web-3', 'gon-web-4', 'gon-web-5', 'gon-admin-1', 'gon-admin-2', 'gon-admin-3', 'gon-admin-4', 'gon-admin-5'],
+    caps: ['Landing page', 'Game: card collection', 'Game: battle modes', 'Game: sign in', 'Game: battle', 'Game: card details', 'Game: opponent turn', 'Portal: profile', 'Portal: rankings', 'Portal: missions', 'Portal: shop', 'Admin: dashboard', 'Admin: missions and rewards', 'Admin: missions', 'Admin: shop management', 'Admin: add shop item'] },
+
+  { id: 'derby', f: ['game', 'backend', 'web'], kind: 'Game + Backend · Binx.tv', title: "Crash'em Derby",
+    short: 'Crowd-play destruction derby on Steam, played live with Twitch chat.',
+    desc: "A crowd-play destruction derby on Steam where streamers play together with their Twitch chat. I work on both the Unity game client and the server and admin tools behind it.",
+    list: ['Migrated the game backend from a Meteor monolith to a standalone Fastify and MongoDB REST API',
+      'Built the garage: car customization, paint jobs, decals, inventory and part locking',
+      'Steam DLC ownership checks that grant items on login',
+      'React admin panel for player support, item grants and the DLC catalog',
+      'Account linking for returning players with email one-time codes'],
+    role: 'Game and backend developer', stack: ['Unity', 'C#', 'Node.js', 'Fastify', 'MongoDB', 'React', 'Docker'],
+    link: ['View on Steam', 'https://store.steampowered.com/app/1379670/Crashem_Derby/'],
+    shots: ['derby-1', 'derby-2', 'derby-3'], caps: ['Arena', 'Gameplay', 'Gameplay'] },
+
+  { id: 'wce', f: ['web', 'backend'], kind: 'AI web app · Events', title: 'White Crown Events',
+    short: 'Guests upload a photo and get an AI-generated event video or image.',
+    desc: 'An AI entertainment app for an events company. Guests sign in, take or upload a photo, pick a template and generate a personalized event video or image. Staff track usage from an admin dashboard.',
+    list: ['Photo capture or upload, template picker and AI image or video generation',
+      'Personal gallery of results with download and share',
+      'Admin dashboard with users, videos generated, completions, downloads and activity'],
+    role: 'Full-stack developer', stack: ['Next.js', 'TypeScript', 'AI APIs', 'Vercel'],
+    shots: ['wce-2', 'wce-3', 'wce-1'], caps: ['Generate a video or image', 'Admin overview', 'Sign in'] },
+
+  { id: 'speech', f: ['mobile', 'backend'], phones: true, kind: 'Mobile app · Education', title: 'Speech Practice App',
+    short: 'English pronunciation practice with student, teacher and parent roles.',
+    desc: 'A mobile app that helps students improve their English pronunciation. Students take speaking quizzes, teachers follow every student\'s progress, and parents see how their children are doing.',
+    list: ['Three roles with their own dashboards: student, teacher and parent',
+      'Press-and-hold speaking quizzes with points and levels',
+      'Teacher view of all students with progress and analytics',
+      'Parent view linked to their children\'s learning progress'],
+    role: 'Mobile developer', stack: ['Flutter', 'Dart', 'Android Studio'],
+    shots: ['speech-1', 'speech-2', 'speech-4', 'speech-3', 'speech-5', 'speech-6', 'speech-8', 'speech-7'],
+    caps: ['Sign in', 'Create account', 'Student: quizzes', 'Student: speaking quiz', 'Teacher: students progress', 'Teacher: menu', 'Parent: menu', 'Parent: child progress'] },
+
+  { id: 'doodle', f: ['web', 'backend'], kind: 'Real-time web · Event activation', title: 'Doodle Wall',
+    short: 'Guests draw on their phone and it pops up live on a projected wall.',
+    desc: 'Built for an event activation client. Guests scan a QR code, color a shape on their phone and sign it, then watch it appear live on a big projected wall with themed animations.',
+    list: ['Real-time wall on Supabase Realtime with a polling fallback',
+      'Five themes with animated deliveries, like a falcon that carries each drawing onto a map',
+      'Auto layout that packs drawings tightly and resizes as more arrive',
+      'Operator panel: live theme switching, backgrounds, sizes, moderation and zip export',
+      'Locked-down database with row-level security and code-protected admin functions'],
+    role: 'Sole developer', stack: ['JavaScript', 'Canvas', 'Supabase', 'PostgreSQL'],
+    shots: ['doodle-qatar', 'doodle-christmas'], caps: ['Qatar theme', 'Christmas theme'] },
+
+  { id: 'ez', f: ['web', 'mobile'], kind: 'Web + Mobile · MetaXSeed', title: 'EZ Airsoft',
+    short: 'Gaming platform for an airsoft arena with a loyalty rewards card.',
+    desc: 'A tactical gaming platform for an airsoft arena: match sign-ups, leaderboards, a gear shop and a loyalty rewards card that earns points on every purchase.',
+    list: ['Next.js web app in a TypeScript monorepo', 'Companion Flutter mobile app', 'Membership tiers and points with Firebase checkout'],
+    role: 'Lead developer', stack: ['Next.js', 'TypeScript', 'Flutter', 'Firebase'],
+    link: ['Live site', 'https://metax-monorepo-ezairsoft-web.vercel.app'],
+    shots: ['ezairsoft-home'], caps: ['Home page'] },
+
+  { id: 'music', f: ['game', 'mobile'], phones: true, kind: 'Mobile game · Unity', title: 'Music Pattern',
+    short: 'Rhythm piano game for Android with unlockable songs and instruments.',
+    desc: 'A rhythm game for Android where players tap falling tiles to the beat. Songs unlock with levels and coins, and players can switch instruments.',
+    list: ['Song list with charts, favorites and star ratings', 'Unlocks with levels, coins and gems', 'Selectable instruments and a lucky wheel', 'Sound and language settings'],
+    role: 'Game developer', stack: ['Unity', 'C#', 'Android'],
+    shots: ['music-1', 'music-2', 'music-3', 'music-4'], caps: ['Song list', 'Home', 'Gameplay', 'Settings'] },
+
+  { id: 'skate', f: ['game', 'mobile'], kind: 'Mobile game · Unity', title: 'Skate Bored',
+    short: '2D side-scrolling skateboard platformer.',
+    desc: 'A 2D side-scrolling platformer where the player skates through levels, collects coins, jumps gaps and avoids enemies.',
+    list: ['Level select with progression', 'Coins, lives and enemies', 'Touch controls for Android'],
+    role: 'Game developer', stack: ['Unity', 'C#', 'Android'],
+    shots: ['skate-1', 'skate-2', 'skate-3', 'skate-4'], caps: ['Title screen', 'Level select', 'Gameplay', 'Gameplay'] }
+];
+
+var grid = document.getElementById('grid');
+function card(p) {
+  var b = document.createElement('button');
+  b.className = 'card reveal' + (p.wide ? ' wide' : '');
+  b.dataset.f = p.f.join(' ');
+  var cover = p.phones
+    ? '<div class="cover phones">' + p.shots.slice(0, 3).map(function (s) { return '<img src="img/' + s + '.jpg" alt="" loading="lazy">'; }).join('') + '<span class="count">' + p.shots.length + ' screens</span></div>'
+    : '<div class="cover"><img src="img/' + p.shots[0] + '.jpg" alt="' + p.title + '" loading="lazy"><span class="count">' + p.shots.length + (p.shots.length === 1 ? ' screen' : ' screens') + '</span></div>';
+  b.innerHTML = cover + '<div class="meta"><div class="row"><div class="eyebrow">' + p.kind + '</div></div>' +
+    '<div class="row"><h3>' + p.title + '</h3><span class="arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>' +
+    '<p>' + p.short + '</p><div class="tags">' + p.stack.slice(0, 5).map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') + '</div></div>';
+  b.onclick = function () { openCase(p); };
+  return b;
+}
+P.forEach(function (p) { grid.appendChild(card(p)); });
+
+document.querySelectorAll('#filters button').forEach(function (btn) {
+  btn.onclick = function () {
+    document.querySelectorAll('#filters button').forEach(function (x) { x.classList.toggle('on', x === btn); });
+    var f = btn.dataset.f;
+    document.querySelectorAll('#grid .card').forEach(function (c) {
+      var show = f === 'all' || c.dataset.f.split(' ').indexOf(f) >= 0;
+      c.style.display = show ? '' : 'none';
+      c.classList.toggle('wide', show && f === 'all' && c === grid.firstChild);
+    });
+  };
+});
+
+// Case study
+var modal = document.getElementById('modal'), cur = null, idx = 0;
+function $(id) { return document.getElementById(id); }
+function show(i) {
+  idx = (i + cur.shots.length) % cur.shots.length;
+  $('big').src = 'img/' + cur.shots[idx] + '.jpg';
+  $('big').alt = cur.caps[idx] || cur.title;
+  $('cap').textContent = (cur.caps[idx] || '') + '  ·  ' + (idx + 1) + ' / ' + cur.shots.length;
+  document.querySelectorAll('#thumbs img').forEach(function (t, k) { t.classList.toggle('on', k === idx); if (k === idx) t.scrollIntoView({ block: 'nearest', inline: 'center' }); });
+  var many = cur.shots.length > 1;
+  $('prev').style.display = $('next').style.display = many ? '' : 'none';
+}
+function openCase(p) {
+  cur = p;
+  $('mKind').textContent = p.kind; $('mTitle').textContent = p.title; $('mDesc').textContent = p.desc;
+  $('mList').innerHTML = p.list.map(function (l) { return '<li>' + l + '</li>'; }).join('');
+  $('mSide').innerHTML = '<div><span>Role</span>' + p.role + '</div><div><span>Stack</span><div class="tags">' +
+    p.stack.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') + '</div></div>' +
+    (p.link ? '<div><span>Link</span><a href="' + p.link[1] + '" target="_blank" rel="noopener">' + p.link[0] + ' →</a></div>' : '');
+  $('thumbs').innerHTML = p.shots.map(function (s, k) { return '<img src="img/' + s + '.jpg" alt="" data-k="' + k + '">'; }).join('');
+  $('thumbs').style.display = p.shots.length > 1 ? '' : 'none';
+  document.querySelectorAll('#thumbs img').forEach(function (t) { t.onclick = function () { show(+t.dataset.k); }; });
+  modal.classList.add('on'); modal.scrollTop = 0; document.body.style.overflow = 'hidden';
+  show(0);
+}
+function closeCase() { modal.classList.remove('on'); document.body.style.overflow = ''; }
+$('close').onclick = closeCase;
+$('prev').onclick = function () { show(idx - 1); };
+$('next').onclick = function () { show(idx + 1); };
+modal.addEventListener('click', function (e) { if (e.target === modal) closeCase(); });
+document.addEventListener('keydown', function (e) {
+  if (!modal.classList.contains('on')) return;
+  if (e.key === 'Escape') closeCase();
+  if (e.key === 'ArrowLeft') show(idx - 1);
+  if (e.key === 'ArrowRight') show(idx + 1);
+});
+
+// Nav border and reveal on scroll
+var nav = document.getElementById('nav');
+addEventListener('scroll', function () { nav.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
+var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+  es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -8% 0px' }) : null;
+document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
