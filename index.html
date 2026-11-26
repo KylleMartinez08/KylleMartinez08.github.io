@@ -260,8 +260,6 @@
     <div class="grid" id="grid"></div>
 
     <div class="others reveal">
-      <div class="other"><h4>Card Scanner</h4><p>Booth lead capture for exhibitions. AI reads a business card, the team tags the lead, sends the catalog and follow-ups run automatically.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">AI</span></div></div>
-      <div class="other"><h4>cdrive.shop</h4><p>Marketplace for professional organizers with listings, provider and customer dashboards, and an admin area.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span></div></div>
       <div class="other"><h4>Batangas Church App</h4><p>Mobile app for a local church community.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span></div></div>
       <div class="other"><h4>Space Shooter Multiplayer</h4><p>Online multiplayer 2D space shooter.</p><div class="tags"><span class="tag">Unity</span><span class="tag">C#</span></div></div>
     </div>
@@ -414,6 +412,28 @@ var P = [
       'Multi-city database on Supabase with row-level security'],
     role: 'Full-stack developer', stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Flutter', 'shadcn/ui'],
     shots: ['city-1', 'city-2', 'city-3', 'city-4'], caps: ['Home: barangays of the city', 'Barangay page with performance score', 'City-wide performance ranking', 'Report a problem'] },
+
+  { id: 'cdrive', f: ['web', 'backend'], kind: 'Marketplace · Web app', title: 'cdrive.shop',
+    short: 'Marketplace that connects homeowners with verified professional organizers.',
+    desc: 'A two-sided marketplace for home organizing. Clients post what needs sorting and get offers, or book a verified organizer directly. Organizers manage bookings and earnings, and the team runs verification, payments and disputes from an admin area.',
+    list: ['Organizer directory with search, categories, cities and ratings',
+      'Open requests that organizers send offers on, with addresses kept private',
+      'Booking, checkout, receipts and in-app messages',
+      'Client and organizer dashboards',
+      'Admin: ID verification, payments, disputes, reviews, blog and audit log'],
+    role: 'Full-stack developer', stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL'],
+    shots: ['cdrive-1', 'cdrive-2', 'cdrive-3', 'cdrive-4'], caps: ['Home page', 'Verified organizers', 'Open requests with offers', 'Client dashboard'] },
+
+  { id: 'scanner', f: ['web', 'backend'], kind: 'AI web app · Exhibitions', title: 'Card Scanner',
+    short: 'Booth lead capture: scan a business card, tag the lead, send the catalog.',
+    desc: 'A lead capture app for a trading company\'s exhibition booths. Staff photograph a business card or scan a QR badge, AI reads the details, the lead gets a hot, warm or cold tag and receives the catalog by email right away. Follow-ups go out automatically and each event gets its own report.',
+    list: ['AI business card reading, QR badge scan or manual entry',
+      'Instant catalog email and WhatsApp message per lead',
+      'Scheduled follow-up emails',
+      'Per-event reports with Excel and PDF export',
+      'Multiple events and team members with roles'],
+    role: 'Full-stack developer', stack: ['Next.js', 'TypeScript', 'Supabase', 'Claude AI', 'Vercel'],
+    shots: ['scanner-1', 'scanner-2', 'scanner-3'], caps: ['Booth home', 'Scan a business card', 'Event report'] },
 
   { id: 'habisalin', f: ['game'], kind: 'Educational game · Unity 6', title: 'HabiSalin',
     short: 'Pixel-art story game about the weaving traditions of Maragondon, Cavite.',
